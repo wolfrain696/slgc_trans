@@ -130,45 +130,6 @@ export default function HomePage() {
               </Link>
             </div>
           </motion.div>
-
-          {/* Hero Visual Element */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative"
-          >
-            <div className="relative z-10 bg-[#1a2332]/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 shadow-2xl max-w-md ml-auto">
-              <div className="flex items-center justify-between mb-6 border-b border-gray-700 pb-4">
-                <div>
-                  <p className="text-sm text-gray-400">Текущий статус</p>
-                  <p className="text-green-400 font-bold flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />{' '}
-                    В работе
-                  </p>
-                </div>
-                <Globe className="text-[#d4af37] w-8 h-8" />
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-300">Шанхай</span>
-                  <div className="h-px bg-gray-600 flex-grow mx-4 relative">
-                    <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-[#0A1628] px-2">
-                      <Truck className="w-4 h-4 text-[#d4af37]" />
-                    </div>
-                  </div>
-                  <span className="text-gray-300">Москва</span>
-                </div>
-                <div className="flex justify-between items-center text-sm text-gray-500">
-                  <span>Отправка: Сегодня</span>
-                  <span>Срок: 14-18 дней</span>
-                </div>
-                <Button variant="secondary" className="w-full mt-4 text-sm">
-                  Отследить груз
-                </Button>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

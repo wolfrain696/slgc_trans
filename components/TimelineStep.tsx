@@ -33,10 +33,12 @@ export function TimelineStep({
           <div className="h-0.5 bg-gray-700 flex-grow ml-4 hidden md:block" />
         )}
       </div>
-      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-        {description}
-      </p>
+      <div className="bg-[#0A1628] relative z-10">
+        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+          {description}
+        </p>
+      </div>
 
       {!isLast && (
         <div className="absolute left-6 top-12 bottom-[-24px] w-0.5 bg-gray-700 md:hidden" />
