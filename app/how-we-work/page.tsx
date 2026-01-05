@@ -1,23 +1,27 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
-import { TimelineStep } from '../components/TimelineStep';
-import { Button } from '../components/ui/Button';
-import { Link } from 'react-router-dom';
-export function HowWeWorkPage() {
-  return <div className="pt-20">
+import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
+
+export default function HowWeWorkPage() {
+  return (
+    <div className="pt-20">
       {/* Header */}
       <section className="bg-[#1a2332] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-10" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+          }}
+        />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Как мы работаем
             </h1>
@@ -42,8 +46,8 @@ export function HowWeWorkPage() {
                   Получаем запрос от клиента
                 </h3>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  Вы отправляете заявку с описанием груза и требованиями
-                  к доставке. Мы обсуждаем детали и уточняем параметры.
+                  Вы отправляете заявку с описанием груза и требованиями к
+                  доставке. Мы обсуждаем детали и уточняем параметры.
                 </p>
                 <ul className="text-sm text-gray-400 space-y-2">
                   <li>• Описание груза</li>
@@ -102,8 +106,8 @@ export function HowWeWorkPage() {
                   Организуем перевозку
                 </h3>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  Организуем перевозку через проверенных партнёров.
-                  Координируем все этапы транспортировки.
+                  Организуем перевозку через проверенных партнёров. Координируем
+                  все этапы транспортировки.
                 </p>
                 <ul className="text-sm text-gray-400 space-y-2">
                   <li>• Организация перевозки</li>
@@ -122,8 +126,8 @@ export function HowWeWorkPage() {
                   Сопровождаем и доставляем
                 </h3>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  Сопровождаем таможенные процедуры и контролируем доставку
-                  до склада получателя.
+                  Сопровождаем таможенные процедуры и контролируем доставку до
+                  склада получателя.
                 </p>
                 <ul className="text-sm text-gray-400 space-y-2">
                   <li>• Сопровождение таможни</li>
@@ -138,7 +142,7 @@ export function HowWeWorkPage() {
             <h3 className="text-2xl font-bold text-white mb-6">
               Готовы начать?
             </h3>
-            <Link to="/contacts">
+            <Link href="/contacts">
               <Button size="lg" variant="primary">
                 Начать новую отправку
               </Button>
@@ -146,5 +150,7 @@ export function HowWeWorkPage() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
+

@@ -1,47 +1,99 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
-import { ArrowRight, Truck, Ship, Package, ShieldCheck, Globe, Clock, Users, FileCheck } from 'lucide-react';
-import { Button } from '../components/ui/Button';
-import { ServiceCard } from '../components/ServiceCard';
-import { AdvantageCard } from '../components/AdvantageCard';
-import { TimelineStep } from '../components/TimelineStep';
-import { ContactForm } from '../components/ContactForm';
-import { Link } from 'react-router-dom';
-export function HomePage() {
-  const services = [{
-    title: 'Организация перевозок',
-    icon: Truck,
-    description: 'Организация и экспедирование международных перевозок с привлечением аккредитованных партнёров.'
-  }, {
-    title: 'Доставка из Китая',
-    icon: Globe,
-    description: 'Организация поставок из Китая под ключ с консолидацией грузов и контролем отгрузки.'
-  }, {
-    title: 'Сборные грузы',
-    icon: Package,
-    description: 'Доставка небольших партий товара с оплатой только за фактический объём груза.'
-  }, {
-    title: 'Таможенное оформление',
-    icon: FileCheck,
-    description: 'Подбор кодов ТН ВЭД, расчёт платежей, подготовка и подача деклараций.'
-  }, {
-    title: 'ВЭД-сопровождение',
-    icon: Users,
-    description: 'Подготовка внешнеторговых документов и консультации по структуре поставок.'
-  }, {
-    title: 'Аутсорсинг ВЭД',
-    icon: ShieldCheck,
-    description: 'Работа по внешнеторговому контракту, закупка и оплата товаров за рубежом.'
-  }, {
-    title: 'Проверка поставщиков',
-    icon: ShieldCheck,
-    description: 'Поиск производителей, проверка контрагентов, аудит производства.'
-  }, {
-    title: 'Складские услуги',
-    icon: Package,
-    description: 'Консолидация, временное хранение, переупаковка и маркировка грузов.'
-  }];
-  return <div className="flex flex-col">
+import {
+  ArrowRight,
+  Truck,
+  Package,
+  ShieldCheck,
+  Globe,
+  Clock,
+  Users,
+  FileCheck,
+} from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { ServiceCard } from '@/components/ServiceCard';
+import { AdvantageCard } from '@/components/AdvantageCard';
+import { TimelineStep } from '@/components/TimelineStep';
+import { ContactForm } from '@/components/ContactForm';
+import Link from 'next/link';
+
+// Helper component for icon
+function Handshake(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m11 17 2 2a1 1 0 1 0 3-1.47l-10-10a2.5 2.5 0 0 0-3.53 0l-3 3a2.5 2.5 0 0 0 0 3.53l1.74 1.74a2.5 2.5 0 0 0 3.53 0l2.82-2.82" />
+      <path d="m22 11-9-9" />
+      <path d="m12 12 10 10" />
+    </svg>
+  );
+}
+
+export default function HomePage() {
+  const services = [
+    {
+      title: 'Организация перевозок',
+      icon: Truck,
+      description:
+        'Организация и экспедирование международных перевозок с привлечением аккредитованных партнёров.',
+    },
+    {
+      title: 'Доставка из Китая',
+      icon: Globe,
+      description:
+        'Организация поставок из Китая под ключ с консолидацией грузов и контролем отгрузки.',
+    },
+    {
+      title: 'Сборные грузы',
+      icon: Package,
+      description:
+        'Доставка небольших партий товара с оплатой только за фактический объём груза.',
+    },
+    {
+      title: 'Таможенное оформление',
+      icon: FileCheck,
+      description:
+        'Подбор кодов ТН ВЭД, расчёт платежей, подготовка и подача деклараций.',
+    },
+    {
+      title: 'ВЭД-сопровождение',
+      icon: Users,
+      description:
+        'Подготовка внешнеторговых документов и консультации по структуре поставок.',
+    },
+    {
+      title: 'Аутсорсинг ВЭД',
+      icon: ShieldCheck,
+      description:
+        'Работа по внешнеторговому контракту, закупка и оплата товаров за рубежом.',
+    },
+    {
+      title: 'Проверка поставщиков',
+      icon: ShieldCheck,
+      description:
+        'Поиск производителей, проверка контрагентов, аудит производства.',
+    },
+    {
+      title: 'Складские услуги',
+      icon: Package,
+      description:
+        'Консолидация, временное хранение, переупаковка и маркировка грузов.',
+    },
+  ];
+
+  return (
+    <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Image Placeholder */}
@@ -49,22 +101,23 @@ export function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628] via-[#0A1628]/80 to-transparent z-10" />
           <div className="absolute inset-0 flex items-center justify-center opacity-30">
             <div className="w-full h-full bg-slate-800 relative overflow-hidden">
-              {/* Abstract representation of a truck/highway */}
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center mix-blend-overlay" />
+              <div
+                className="absolute inset-0 bg-cover bg-center mix-blend-overlay"
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+                }}
+              />
             </div>
           </div>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{
-          opacity: 0,
-          x: -50
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.8
-        }}>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="inline-block px-4 py-2 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#d4af37] font-semibold text-sm mb-6">
               Глобальный логистический партнер
             </div>
@@ -75,17 +128,23 @@ export function HomePage() {
               </span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
-              SLGC TRANS — международный логистический оператор и экспедитор.
-              Мы организуем и сопровождаем международные поставки, обеспечивая
+              SLGC TRANS — международный логистический оператор и экспедитор. Мы
+              организуем и сопровождаем международные поставки, обеспечивая
               единое окно управления логистикой.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} onClick={() => document.getElementById('consultation')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
+              <Button
+                size="lg"
+                rightIcon={<ArrowRight className="w-5 h-5" />}
+                onClick={() =>
+                  document
+                    .getElementById('consultation')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
                 Рассчитать стоимость
               </Button>
-              <Link to="/services">
+              <Link href="/services">
                 <Button variant="outline" size="lg">
                   Наши услуги
                 </Button>
@@ -93,17 +152,13 @@ export function HomePage() {
             </div>
           </motion.div>
 
-          {/* Hero Visual Element (Abstract Map/Stats) */}
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.9
-        }} animate={{
-          opacity: 1,
-          scale: 1
-        }} transition={{
-          duration: 0.8,
-          delay: 0.2
-        }} className="hidden lg:block relative">
+          {/* Hero Visual Element */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden lg:block relative"
+          >
             <div className="relative z-10 bg-[#1a2332]/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 shadow-2xl max-w-md ml-auto">
               <div className="flex items-center justify-between mb-6 border-b border-gray-700 pb-4">
                 <div>
@@ -151,7 +206,9 @@ export function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => <ServiceCard key={index} {...service} delay={index * 0.1} />)}
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} delay={index * 0.1} />
+            ))}
           </div>
         </div>
       </section>
@@ -171,15 +228,40 @@ export function HomePage() {
                 проверенных перевозчиков и таможенных представителей.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <AdvantageCard title="Единая точка" description="Централизованное управление поставкой" icon={Clock} delay={0.1} />
-                <AdvantageCard title="Прозрачность" description="Прозрачное ценообразование без скрытых платежей" icon={ShieldCheck} delay={0.2} />
-                <AdvantageCard title="Контроль" description="Контроль сроков и документов на всех этапах" icon={Users} delay={0.3} />
-                <AdvantageCard title="Персональный менеджер" description="Опыт работы с международными направлениями" icon={Handshake} delay={0.4} />
+                <AdvantageCard
+                  title="Единая точка"
+                  description="Централизованное управление поставкой"
+                  icon={Clock}
+                  delay={0.1}
+                />
+                <AdvantageCard
+                  title="Прозрачность"
+                  description="Прозрачное ценообразование без скрытых платежей"
+                  icon={ShieldCheck}
+                  delay={0.2}
+                />
+                <AdvantageCard
+                  title="Контроль"
+                  description="Контроль сроков и документов на всех этапах"
+                  icon={Users}
+                  delay={0.3}
+                />
+                <AdvantageCard
+                  title="Персональный менеджер"
+                  description="Опыт работы с международными направлениями"
+                  icon={Handshake}
+                  delay={0.4}
+                />
               </div>
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-700 group">
-              {/* Warehouse Image Placeholder */}
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" />
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80')",
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] to-transparent opacity-80" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-[#d4af37] text-[#0A1628] font-bold px-4 py-2 inline-block rounded mb-4">
@@ -203,23 +285,49 @@ export function HomePage() {
               Как мы работаем
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              Стабильность поставок, прозрачность процессов и предсказуемый результат.
+              Стабильность поставок, прозрачность процессов и предсказуемый
+              результат.
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between gap-8 relative">
-            {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-[22px] left-12 right-12 h-0.5 bg-gray-800 z-0" />
 
-            <TimelineStep number="01" title="Запрос" description="Получаем запрос от клиента с деталями груза." delay={0.1} />
-            <TimelineStep number="02" title="Анализ" description="Анализируем груз и маршрут, рассчитываем стоимость и сроки." delay={0.2} />
-            <TimelineStep number="03" title="Организация" description="Организуем перевозку через проверенных партнёров." delay={0.3} />
-            <TimelineStep number="04" title="Сопровождение" description="Сопровождаем таможенные процедуры и контролируем этапы." delay={0.4} />
-            <TimelineStep number="05" title="Доставка" description="Контролируем доставку до склада получателя." isLast delay={0.5} />
+            <TimelineStep
+              number="01"
+              title="Запрос"
+              description="Получаем запрос от клиента с деталями груза."
+              delay={0.1}
+            />
+            <TimelineStep
+              number="02"
+              title="Анализ"
+              description="Анализируем груз и маршрут, рассчитываем стоимость и сроки."
+              delay={0.2}
+            />
+            <TimelineStep
+              number="03"
+              title="Организация"
+              description="Организуем перевозку через проверенных партнёров."
+              delay={0.3}
+            />
+            <TimelineStep
+              number="04"
+              title="Сопровождение"
+              description="Сопровождаем таможенные процедуры и контролируем этапы."
+              delay={0.4}
+            />
+            <TimelineStep
+              number="05"
+              title="Доставка"
+              description="Контролируем доставку до склада получателя."
+              isLast
+              delay={0.5}
+            />
           </div>
 
           <div className="mt-16 text-center">
-            <Link to="/how-we-work">
+            <Link href="/how-we-work">
               <Button variant="outline">Подробный процесс</Button>
             </Link>
           </div>
@@ -228,27 +336,45 @@ export function HomePage() {
 
       {/* Geography Section */}
       <section className="py-24 bg-[#1a2332] relative">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center mix-blend-overlay" />
+        <div
+          className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+          }}
+        />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
             Глобальный охват
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-            Организуем перевозки из Китая, стран Азии, Европы и других регионов мира.
+            Организуем перевозки из Китая, стран Азии, Европы и других регионов
+            мира.
           </p>
 
           <div className="relative bg-[#0A1628] rounded-2xl p-8 border border-gray-700 shadow-2xl overflow-hidden min-h-[400px] flex items-center justify-center">
-            {/* Abstract Map Visualization */}
             <div className="absolute inset-0 opacity-30">
-              {/* Dots representing cities */}
               <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-[#d4af37] rounded-full animate-ping" />
               <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-[#d4af37] rounded-full animate-ping delay-700" />
               <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-[#d4af37] rounded-full animate-ping delay-300" />
 
-              {/* Lines */}
               <svg className="absolute inset-0 w-full h-full">
-                <path d="M 25% 50% Q 50% 20% 66% 33%" stroke="#d4af37" strokeWidth="2" fill="none" strokeDasharray="5,5" className="opacity-50" />
-                <path d="M 66% 33% Q 75% 40% 75% 50%" stroke="#d4af37" strokeWidth="2" fill="none" strokeDasharray="5,5" className="opacity-50" />
+                <path
+                  d="M 25% 50% Q 50% 20% 66% 33%"
+                  stroke="#d4af37"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeDasharray="5,5"
+                  className="opacity-50"
+                />
+                <path
+                  d="M 66% 33% Q 75% 40% 75% 50%"
+                  stroke="#d4af37"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeDasharray="5,5"
+                  className="opacity-50"
+                />
               </svg>
             </div>
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl">
@@ -261,8 +387,7 @@ export function HomePage() {
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-2">Россия</h3>
                 <p className="text-gray-400">
-                  Основные узлы: Москва, Санкт-Петербург, Владивосток,
-                  Новосибирск
+                  Основные узлы: Москва, Санкт-Петербург, Владивосток, Новосибирск
                 </p>
               </div>
               <div className="text-center">
@@ -275,7 +400,7 @@ export function HomePage() {
           </div>
 
           <div className="mt-12">
-            <Link to="/geography">
+            <Link href="/geography">
               <Button variant="primary">Карта маршрутов</Button>
             </Link>
           </div>
@@ -322,13 +447,7 @@ export function HomePage() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
-// Helper component for icon
-function Handshake(props: any) {
-  return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m11 17 2 2a1 1 0 1 0 3-1.47l-10-10a2.5 2.5 0 0 0-3.53 0l-3 3a2.5 2.5 0 0 0 0 3.53l1.74 1.74a2.5 2.5 0 0 0 3.53 0l2.82-2.82" />
-      <path d="m22 11-9-9" />
-      <path d="m12 12 10 10" />
-    </svg>;
-}
+

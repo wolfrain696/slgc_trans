@@ -1,33 +1,32 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
-import { ArrowRight, BoxIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, LucideIcon } from 'lucide-react';
+import Link from 'next/link';
+
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: BoxIcon;
+  icon: LucideIcon;
   link?: string;
   delay?: number;
 }
+
 export function ServiceCard({
   title,
   description,
   icon: Icon,
   link = '/services',
-  delay = 0
+  delay = 0,
 }: ServiceCardProps) {
-  return <motion.div initial={{
-    opacity: 0,
-    y: 20
-  }} whileInView={{
-    opacity: 1,
-    y: 0
-  }} viewport={{
-    once: true
-  }} transition={{
-    duration: 0.5,
-    delay
-  }} className="group relative bg-[#1a2332] rounded-xl p-8 border border-gray-800 hover:border-[#d4af37] transition-colors duration-300 h-full flex flex-col">
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="group relative bg-[#1a2332] rounded-xl p-8 border border-gray-800 hover:border-[#d4af37] transition-colors duration-300 h-full flex flex-col"
+    >
       <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-lg bg-[#2a3441] text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-[#0A1628] transition-colors duration-300">
         <Icon className="w-7 h-7" />
       </div>
@@ -40,9 +39,14 @@ export function ServiceCard({
         {description}
       </p>
 
-      <Link to={link} className="inline-flex items-center text-sm font-semibold text-[#d4af37] hover:text-white transition-colors mt-auto">
+      <Link
+        href={link}
+        className="inline-flex items-center text-sm font-semibold text-[#d4af37] hover:text-white transition-colors mt-auto"
+      >
         Подробнее{' '}
         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
       </Link>
-    </motion.div>;
+    </motion.div>
+  );
 }
+

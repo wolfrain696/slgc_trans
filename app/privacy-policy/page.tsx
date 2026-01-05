@@ -1,19 +1,18 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
-export function PrivacyPolicyPage() {
-  return <div className="pt-20">
+
+export default function PrivacyPolicyPage() {
+  return (
+    <div className="pt-20">
       {/* Header */}
       <section className="bg-[#1a2332] py-16 border-b border-gray-800">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Политика обработки персональных данных
             </h1>
@@ -319,13 +318,19 @@ export function PrivacyPolicyPage() {
                 </p>
                 <p>
                   <strong className="text-white">Email:</strong>{' '}
-                  <a href="mailto:info@slgctrans.com" className="text-[#d4af37] hover:underline">
+                  <a
+                    href="mailto:info@slgctrans.com"
+                    className="text-[#d4af37] hover:underline"
+                  >
                     info@slgctrans.com
                   </a>
                 </p>
                 <p>
                   <strong className="text-white">Телефон:</strong>{' '}
-                  <a href="tel:+74951234567" className="text-[#d4af37] hover:underline">
+                  <a
+                    href="tel:+74951234567"
+                    className="text-[#d4af37] hover:underline"
+                  >
                     +7 (495) 123-45-67
                   </a>
                 </p>
@@ -334,5 +339,7 @@ export function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
+

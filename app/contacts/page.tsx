@@ -1,22 +1,27 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { ContactForm } from '../components/ContactForm';
-export function ContactsPage() {
-  return <div className="pt-20">
+import { ContactForm } from '@/components/ContactForm';
+
+export default function ContactsPage() {
+  return (
+    <div className="pt-20">
       {/* Header */}
       <section className="bg-[#1a2332] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-10" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+          }}
+        />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Свяжитесь с нами
             </h1>
@@ -85,9 +90,7 @@ export function ContactsPage() {
                     <p className="text-gray-400 mb-1">
                       Общие вопросы: info@slgctrans.com
                     </p>
-                    <p className="text-gray-400">
-                      Продажи: sales@slgctrans.com
-                    </p>
+                    <p className="text-gray-400">Продажи: sales@slgctrans.com</p>
                   </div>
                 </div>
 
@@ -115,8 +118,13 @@ export function ContactsPage() {
                     <p className="text-gray-400">Интерактивная карта</p>
                   </div>
                 </div>
-                {/* Static map image background */}
-                <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png')] bg-cover bg-center opacity-10 -z-10 filter invert" />
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-10 -z-10 filter invert"
+                  style={{
+                    backgroundImage:
+                      "url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png')",
+                  }}
+                />
               </div>
             </div>
 
@@ -132,5 +140,7 @@ export function ContactsPage() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
+
