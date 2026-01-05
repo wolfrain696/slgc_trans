@@ -1,14 +1,20 @@
 'use client';
 
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
+import { ReactNode } from 'react';
 
-interface ButtonProps extends HTMLMotionProps<'button'> {
+interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
 }
 
 export function Button({
@@ -20,7 +26,8 @@ export function Button({
   leftIcon,
   rightIcon,
   disabled,
-  ...props
+  type = 'button',
+  onClick,
 }: ButtonProps) {
   const baseStyles =
     'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#d4af37] disabled:opacity-50 disabled:cursor-not-allowed';
@@ -47,7 +54,8 @@ export function Button({
       whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       disabled={disabled || isLoading}
-      {...props}
+      type={type}
+      onClick={onClick}
     >
       {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
       {!isLoading && leftIcon && <span className="mr-2">{leftIcon}</span>}
@@ -56,4 +64,3 @@ export function Button({
     </motion.button>
   );
 }
-

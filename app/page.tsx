@@ -10,6 +10,7 @@ import {
   Clock,
   Users,
   FileCheck,
+  Handshake,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ServiceCard } from '@/components/ServiceCard';
@@ -17,28 +18,6 @@ import { AdvantageCard } from '@/components/AdvantageCard';
 import { TimelineStep } from '@/components/TimelineStep';
 import { ContactForm } from '@/components/ContactForm';
 import Link from 'next/link';
-
-// Helper component for icon
-function Handshake(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m11 17 2 2a1 1 0 1 0 3-1.47l-10-10a2.5 2.5 0 0 0-3.53 0l-3 3a2.5 2.5 0 0 0 0 3.53l1.74 1.74a2.5 2.5 0 0 0 3.53 0l2.82-2.82" />
-      <path d="m22 11-9-9" />
-      <path d="m12 12 10 10" />
-    </svg>
-  );
-}
 
 export default function HomePage() {
   const services = [
